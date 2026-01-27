@@ -7,7 +7,7 @@ import com.example.orders.OrderItemRequest;
 import com.example.orders.OrderPricingCalculator;
 import com.example.orders.OrderRepository;
 import com.example.orders.OrderService;
-import com.example.orders.OrderValidator;
+import jakarta.validation.Validator;
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,6 +39,12 @@ class OrderControllerIntegrationTest {
     @Autowired
     private OrderRepository repository;
 
+    @Autowired
+    private Validator validator;
+
+    @Autowired
+    private OrderPricingCalculator pricingCalculator;
+
     @BeforeEach
     void resetRepository() {
         if (repository instanceof InMemoryOrderRepository inMemory) {
@@ -65,7 +71,7 @@ class OrderControllerIntegrationTest {
 
     @Test
     void getOrder_returnsOrderById() throws Exception {
-        OrderService service = new OrderService(repository, new OrderValidator(), new OrderPricingCalculator());
+        OrderService service = new OrderService(repository, validator, pricingCalculator);
         Order order = service.createOrder(new CreateOrderRequest(
             "Lee",
             List.of(new OrderItemRequest("Pen", 1, new BigDecimal("5.00")))
@@ -79,7 +85,7 @@ class OrderControllerIntegrationTest {
 
     @Test
     void listOrders_filtersByStatus() throws Exception {
-        OrderService service = new OrderService(repository, new OrderValidator(), new OrderPricingCalculator());
+        OrderService service = new OrderService(repository, validator, pricingCalculator);
         Order first = service.createOrder(new CreateOrderRequest(
             "Park",
             List.of(new OrderItemRequest("Notebook", 1, new BigDecimal("12.00")))
@@ -99,7 +105,7 @@ class OrderControllerIntegrationTest {
 
     @Test
     void listOrders_filtersByQuery() throws Exception {
-        OrderService service = new OrderService(repository, new OrderValidator(), new OrderPricingCalculator());
+        OrderService service = new OrderService(repository, validator, pricingCalculator);
         service.createOrder(new CreateOrderRequest(
             "Alpha",
             List.of(new OrderItemRequest("Notebook", 1, new BigDecimal("12.00")))

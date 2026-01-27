@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.api.orders.OrderControllerIntegrationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-27T12:26:50.981Z" hostname="YANGRAY" time="0.461">
+  <properties/>
+  <testcase name="createOrder_returnsValidationError()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.426"/>
+  <testcase name="createOrder_returnsCreatedOrder()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.017"/>
+  <testcase name="listOrders_filtersByQuery()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.008"/>
+  <testcase name="listOrders_filtersByStatus()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.003"/>
+  <testcase name="getOrder_returnsOrderById()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.004"/>
+  <system-out><![CDATA[21:26:49.967 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.api.orders.OrderControllerIntegrationTest]: OrderControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:26:50.032 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.api.ApiApplication for test class com.example.api.orders.OrderControllerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-01-27T21:26:50.274+09:00  INFO 31212 --- [api] [    Test worker] c.e.a.o.OrderControllerIntegrationTest   : Starting OrderControllerIntegrationTest using Java 21.0.6 with PID 31212 (started by yangray in E:\study\commerce-example\api)
+2026-01-27T21:26:50.275+09:00  INFO 31212 --- [api] [    Test worker] c.e.a.o.OrderControllerIntegrationTest   : The following 1 profile is active: "local"
+2026-01-27T21:26:50.952+09:00  INFO 31212 --- [api] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-01-27T21:26:50.953+09:00  INFO 31212 --- [api] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-01-27T21:26:50.954+09:00  INFO 31212 --- [api] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-01-27T21:26:50.973+09:00  INFO 31212 --- [api] [    Test worker] c.e.a.o.OrderControllerIntegrationTest   : Started OrderControllerIntegrationTest in 0.872 seconds (process running for 1.622)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\ngj10\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.17.8\f09415827a71be7ed621c7bd02550678f28bc81c\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

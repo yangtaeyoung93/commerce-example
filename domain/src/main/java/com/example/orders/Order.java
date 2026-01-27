@@ -40,42 +40,6 @@ public class Order {
         this.createdAt = createdAt;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public List<OrderItem> getItems() {
-        return items;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
-
-    public BigDecimal getSubtotal() {
-        return subtotal;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public BigDecimal getTax() {
-        return tax;
-    }
-
-    public BigDecimal getTotal() {
-        return total;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
-
     public Order withStatus(OrderStatus newStatus) {
         return new Order(
             id,

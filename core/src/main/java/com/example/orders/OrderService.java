@@ -2,24 +2,27 @@ package com.example.orders;
 
 import com.example.global.ValidationError;
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
 import java.time.Instant;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class OrderService {
     private final OrderRepository repository;
-    private final OrderValidator validator;
+    private final Validator validator;
     private final OrderPricingCalculator pricingCalculator;
 
-    public OrderService(OrderRepository repository, OrderValidator validator, OrderPricingCalculator pricingCalculator) {
+    public OrderService(OrderRepository repository, Validator validator, OrderPricingCalculator pricingCalculator) {
         this.repository = repository;
         this.validator = validator;
         this.pricingCalculator = pricingCalculator;
     }
 
     public Order createOrder(CreateOrderRequest request) {
-        validator.validate(request);
+        validateRequest(request);
         List<OrderItem> items = request.items().stream()
             .map(item -> new OrderItem(item.name(), item.quantity(), item.unitPrice()))
             .toList();
@@ -97,5 +100,22 @@ public class OrderService {
             .toLowerCase(Locale.ROOT)
             .contains(needle);
         return inCustomer || inItems;
+    }
+
+    private void validateRequest(CreateOrderRequest request) {
+        if (request == null) {
+            throw new OrderValidationException(List.of(new ValidationError("order", "Order payload is required")));
+        }
+
+        Set<ConstraintViolation<CreateOrderRequest>> violations = validator.validate(request);
+        if (!violations.isEmpty()) {
+            List<ValidationError> errors = violations.stream()
+                .map(violation -> new ValidationError(
+                    violation.getPropertyPath().toString(),
+                    violation.getMessage()
+                ))
+                .toList();
+            throw new OrderValidationException(errors);
+        }
     }
 }

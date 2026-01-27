@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.api.ApiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-27T12:26:51.564Z" hostname="YANGRAY" time="0.002">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.example.api.ApiApplicationTests" time="0.002"/>
+  <system-out><![CDATA[2026-01-27T21:26:51.447+09:00  INFO 31212 --- [api] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.api.ApiApplicationTests]: ApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-27T21:26:51.449+09:00  INFO 31212 --- [api] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.api.ApiApplication for test class com.example.api.ApiApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-01-27T21:26:51.463+09:00  INFO 31212 --- [api] [    Test worker] com.example.api.ApiApplicationTests      : Starting ApiApplicationTests using Java 21.0.6 with PID 31212 (started by yangray in E:\study\commerce-example\api)
+2026-01-27T21:26:51.463+09:00  INFO 31212 --- [api] [    Test worker] com.example.api.ApiApplicationTests      : The following 1 profile is active: "local"
+2026-01-27T21:26:51.564+09:00  INFO 31212 --- [api] [    Test worker] com.example.api.ApiApplicationTests      : Started ApiApplicationTests in 0.113 seconds (process running for 2.212)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

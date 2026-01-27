@@ -3,6 +3,9 @@ package com.example.orders;
 import org.junit.jupiter.api.Test;
 
 import com.example.infra.orders.InMemoryOrderRepository;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -14,7 +17,12 @@ class OrderPaginationTest {
     @Test
     void listOrders_returnsRequestedPageAndSize() {
         InMemoryOrderRepository repository = new InMemoryOrderRepository();
-        OrderService service = new OrderService(repository, new OrderValidator(), new OrderPricingCalculator());
+        Validator validator = Validation.byDefaultProvider()
+            .configure()
+            .messageInterpolator(new ParameterMessageInterpolator())
+            .buildValidatorFactory()
+            .getValidator();
+        OrderService service = new OrderService(repository, validator, new OrderPricingCalculator());
 
         CreateOrderRequest base = new CreateOrderRequest(
             "Lee",

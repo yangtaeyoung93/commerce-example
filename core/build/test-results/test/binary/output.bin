@@ -1,0 +1,2 @@
+|21:27:45.765 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 9.0.1.Final
+õ21:27:45.901 [Test worker] WARN org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator -- HV000185: Message contains EL expression: ${inclusive == true ? ' ' : ''}, which is not supported by the selected message interpolator

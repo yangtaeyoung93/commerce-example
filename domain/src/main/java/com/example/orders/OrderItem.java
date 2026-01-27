@@ -1,8 +1,11 @@
 package com.example.orders;
 
+import lombok.Getter;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@Getter
 public class OrderItem {
     private final String name;
     private final int quantity;
@@ -12,18 +15,6 @@ public class OrderItem {
         this.name = name;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public BigDecimal getUnitPrice() {
-        return unitPrice;
     }
 
     public BigDecimal lineTotal() {
