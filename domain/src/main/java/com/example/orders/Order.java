@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
+import lombok.Getter;
 
+@Getter
 public class Order {
     private final long id;
     private final String customerName;
