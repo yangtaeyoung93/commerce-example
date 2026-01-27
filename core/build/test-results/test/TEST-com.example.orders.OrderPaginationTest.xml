@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.orders.OrderPaginationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-27T04:36:36.198Z" hostname="DESKTOP-9V8UNK4" time="0.057">
+  <properties/>
+  <testcase name="listOrders_returnsRequestedPageAndSize()" classname="com.example.orders.OrderPaginationTest" time="0.057"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.orders.OrderValidationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-27T04:36:36.294Z" hostname="DESKTOP-9V8UNK4" time="0.004">
+  <properties/>
+  <testcase name="createOrder_rejectsMissingRequiredFields()" classname="com.example.orders.OrderValidationTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

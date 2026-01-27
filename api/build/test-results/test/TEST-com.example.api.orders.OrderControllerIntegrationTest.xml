@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.api.orders.OrderControllerIntegrationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-01-27T04:36:33.401Z" hostname="DESKTOP-9V8UNK4" time="0.488">
+  <properties/>
+  <testcase name="createOrder_returnsValidationError()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.366"/>
+  <testcase name="createOrder_returnsCreatedOrder()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.046"/>
+  <testcase name="listOrders_filtersByQuery()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.037"/>
+  <testcase name="listOrders_filtersByStatus()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.012"/>
+  <testcase name="getOrder_returnsOrderById()" classname="com.example.api.orders.OrderControllerIntegrationTest" time="0.018"/>
+  <system-out><![CDATA[2026-01-27T13:36:32.869+09:00  INFO 22576 --- [api] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.api.orders.OrderControllerIntegrationTest]: OrderControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-01-27T13:36:32.896+09:00  INFO 22576 --- [api] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.api.ApiApplication for test class com.example.api.orders.OrderControllerIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.1)
+
+2026-01-27T13:36:32.939+09:00  INFO 22576 --- [api] [    Test worker] c.e.a.o.OrderControllerIntegrationTest   : Starting OrderControllerIntegrationTest using Java 21.0.6 with PID 22576 (started by kweather in D:\study\spring-boot\api)
+2026-01-27T13:36:32.939+09:00  INFO 22576 --- [api] [    Test worker] c.e.a.o.OrderControllerIntegrationTest   : No active profile set, falling back to 1 default profile: "default"
+2026-01-27T13:36:33.361+09:00  INFO 22576 --- [api] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-01-27T13:36:33.362+09:00  INFO 22576 --- [api] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-01-27T13:36:33.369+09:00  INFO 22576 --- [api] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-01-27T13:36:33.392+09:00  INFO 22576 --- [api] [    Test worker] c.e.a.o.OrderControllerIntegrationTest   : Started OrderControllerIntegrationTest in 0.488 seconds (process running for 6.168)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.api.orders.OrderErrorMappingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-27T04:36:33.894Z" hostname="DESKTOP-9V8UNK4" time="0.006">
+  <properties/>
+  <testcase name="createOrder_mapsDomainExceptionToErrorResponse()" classname="com.example.api.orders.OrderErrorMappingTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
