@@ -8,13 +8,10 @@ import java.util.List;
 
 public record OrderResponse(
     long id,
-    String customerName,
+    String userId,
     OrderStatus status,
     List<OrderItemResponse> items,
-    BigDecimal subtotal,
-    BigDecimal discount,
-    BigDecimal tax,
-    BigDecimal total,
+    BigDecimal totalAmount,
     Instant createdAt
 ) {
 }

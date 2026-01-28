@@ -2,12 +2,25 @@ plugins {
     id 'java-library'
 }
 
+def querydslGeneratedDir = layout.buildDirectory.dir("generated/sources/annotationProcessor/java/main")
+
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
     testCompileOnly 'org.projectlombok:lombok:1.18.34'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
 
-    api 'jakarta.validation:jakarta.validation-api'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor 'com.querydsl:querydsl-apt:5.0.0:jakarta'
+    annotationProcessor 'jakarta.persistence:jakarta.persistence-api'
     implementation project(':global')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir querydslGeneratedDir
+        }
+    }
 }

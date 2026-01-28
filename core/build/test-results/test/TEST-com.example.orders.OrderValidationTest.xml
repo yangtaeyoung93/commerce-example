@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.orders.OrderValidationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-27T12:27:45.882Z" hostname="YANGRAY" time="0.02">
-  <properties/>
-  <testcase name="createOrder_rejectsMissingRequiredFields()" classname="com.example.orders.OrderValidationTest" time="0.02"/>
-  <system-out><![CDATA[21:27:45.901 [Test worker] WARN org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator -- HV000185: Message contains EL expression: ${inclusive == true ? ' ' : ''}, which is not supported by the selected message interpolator
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

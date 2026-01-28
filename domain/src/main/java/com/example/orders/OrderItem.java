@@ -1,42 +1,57 @@
 package com.example.orders;
 
+import com.example.item.Item;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import static jakarta.persistence.FetchType.LAZY;
+
 @Getter
+@Setter
+@Entity
 public class OrderItem {
-    private final String name;
-    private final int quantity;
-    private final BigDecimal unitPrice;
+    @Id @GeneratedValue
+    @Column(name = "order_item_id")
+    private Long id;
 
-    public OrderItem(String name, int quantity, BigDecimal unitPrice) {
-        this.name = name;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "item_id")
+    private Item item;
+
+    @JsonIgnore
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
+
+    private int orderPrice; //주문 가격
+    private int count; //주문 수량
+
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
     }
 
-    public BigDecimal lineTotal() {
-        return unitPrice.multiply(BigDecimal.valueOf(quantity));
+    //==비즈니스 로직==//
+    public void cancel() {
+        getItem().addStock(count);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        OrderItem orderItem = (OrderItem) o;
-        return quantity == orderItem.quantity
-            && Objects.equals(name, orderItem.name)
-            && Objects.equals(unitPrice, orderItem.unitPrice);
-    }
+    //==조회 로직==//
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, quantity, unitPrice);
+    /**
+     * 주문상품 전체 가격 조회
+     */
+    public int getTotalPrice() {
+        return getOrderPrice() * getCount();
     }
 }

@@ -1,8 +1,8 @@
 package com.example.api.orders;
 
-import com.example.orders.InvalidOrderStateException;
-import com.example.orders.OrderNotFoundException;
-import com.example.orders.OrderValidationException;
+import com.example.orders.exception.InvalidOrderStateException;
+import com.example.orders.exception.OrderNotFoundException;
+import com.example.orders.exception.OrderValidationException;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

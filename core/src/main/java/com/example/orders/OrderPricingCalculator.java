@@ -11,7 +11,7 @@ public class OrderPricingCalculator {
 
     public PricingResult calculate(List<OrderItem> items) {
         BigDecimal subtotal = items.stream()
-            .map(OrderItem::lineTotal)
+            .map(item -> BigDecimal.valueOf(item.getTotalPrice()))
             .reduce(BigDecimal.ZERO, BigDecimal::add);
 
         BigDecimal discount = BigDecimal.ZERO;

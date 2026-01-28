@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.orders.OrderPaginationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-01-27T12:27:45.682Z" hostname="YANGRAY" time="0.186">
-  <properties/>
-  <testcase name="listOrders_returnsRequestedPageAndSize()" classname="com.example.orders.OrderPaginationTest" time="0.186"/>
-  <system-out><![CDATA[21:27:45.765 [Test worker] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 9.0.1.Final
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

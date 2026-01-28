@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 public record CreateOrderRequest(
-    @NotBlank String customerName,
+    @NotBlank Long memberId,
     @NotEmpty List<@NotNull @Valid OrderItemRequest> items
 ) {
 }
