@@ -44,10 +44,8 @@ class OrderServiceTest {
         int quantity = 2;
 
         Member member = new Member();
-        Item item = new Item();
+        Item item = new Item("Test Item", 1500, 10);
         item.setId(itemId);
-        item.setPrice(1500);
-        item.setStockQuantity(10);
 
         when(memberRepository.findById(memberId)).thenReturn(Optional.of(member));
         when(itemRepository.findById(itemId)).thenReturn(Optional.of(item));

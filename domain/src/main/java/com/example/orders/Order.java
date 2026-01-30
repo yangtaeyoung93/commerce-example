@@ -14,6 +14,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 @Setter
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id @GeneratedValue
@@ -31,6 +32,14 @@ public class Order {
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status; //주문상태 [ORDER, CANCEL]
+
+    private int totalPrice;
+
+    @PrePersist
+    @PreUpdate
+    public void updateTotalPrice(){
+        this.totalPrice = getTotalPrice();
+    }
 
     public void addOrderItem(OrderItem orderItem) {
         orderItems.add(orderItem);
@@ -52,11 +61,7 @@ public class Order {
 
     // 전체 주문 가격 조회
     public int getTotalPrice() {
-        int totalPrice = 0;
-        for (OrderItem orderItem : orderItems) {
-            totalPrice += orderItem.getTotalPrice();
-        }
-        return totalPrice;
+        return orderItems.stream().mapToInt(OrderItem::getTotalPrice).sum();
     }
 
 }

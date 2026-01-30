@@ -8,7 +8,7 @@ import java.util.List;
 
 public record OrderResponse(
     long id,
-    String userId,
+    String memberId,
     OrderStatus status,
     List<OrderItemResponse> items,
     BigDecimal totalAmount,

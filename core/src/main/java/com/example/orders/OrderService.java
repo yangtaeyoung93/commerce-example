@@ -32,6 +32,13 @@ public class OrderService {
             .toList();
 
         Order order = Order.createOrder(member, orderItems);
+        order.getTotalPrice();
         return orderRepository.save(order);
+    }
+
+    public List<Order> search(OrderSearchCondition condition){
+        List<Order> search = orderRepository.search(condition);
+
+        return search;
     }
 }

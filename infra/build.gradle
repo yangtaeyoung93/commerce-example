@@ -2,7 +2,13 @@ plugins {
     id 'java-library'
 }
 
+// 1. Q-Type 생성 경로 변수 선언
 def querydslGeneratedDir = layout.buildDirectory.dir("generated/sources/annotationProcessor/java/main")
+
+// 2. Java 컴파일 시 사용할 경로 설정
+tasks.withType(JavaCompile).configureEach {
+    options.getGeneratedSourceOutputDirectory().set(querydslGeneratedDir)
+}
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.34'
@@ -16,10 +22,17 @@ dependencies {
     implementation project(':domain')
 }
 
+
+// 3. sourceSets 추가하여 IntelliJ가 코드를 인식하게 함
 sourceSets {
     main {
         java {
             srcDir querydslGeneratedDir
         }
     }
+}
+
+// 4. clean 태스크 시 생성된 폴더도 같이 삭제
+clean {
+    delete querydslGeneratedDir
 }
