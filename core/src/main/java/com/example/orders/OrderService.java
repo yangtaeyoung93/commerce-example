@@ -7,8 +7,12 @@ import com.example.repository.item.ItemRepository;
 import com.example.repository.member.MemberRepository;
 import com.example.repository.orders.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -36,9 +40,39 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public List<Order> search(OrderSearchCondition condition){
-        List<Order> search = orderRepository.search(condition);
+    public List<OrderResponse> search(OrderSearchCondition condition){
+        List<Order> orders = orderRepository.search(condition);
 
-        return search;
+        List<OrderResponse> result = orders.stream()
+                .map(o -> new OrderResponse(
+                        o.getId(),
+                        o.getMember().getName(),
+                        o.getStatus(),
+                        o.getOrderItems().stream()
+                                .map(oi -> new OrderItemResponse(oi.getOrder().getId(),oi.getItem().getName(),oi.getCount(),oi.getTotalPrice()))
+                                .toList(),
+                        BigDecimal.valueOf(o.getTotalPrice()),
+                        o.getOrderDate()
+
+                ))
+                .toList();
+
+        return result;
     }
+
+    public PageResponse searchPage(OrderSearchCondition condition, Pageable pageable){
+        Page<OrderResponse> orders = orderRepository.searchEntity(condition, pageable)
+                .map(OrderResponse::from);
+
+        PageResponse pageResponse = new PageResponse(
+                orders.getContent(),
+                pageable.getPageNumber(),
+                pageable.getPageSize(),
+                orders.getTotalElements(),
+                orders.getTotalPages()
+                );
+        return pageResponse;
+    }
+
+
 }

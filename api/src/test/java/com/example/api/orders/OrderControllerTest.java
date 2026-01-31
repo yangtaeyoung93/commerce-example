@@ -40,13 +40,13 @@ class OrderControllerTest {
         // Given test data
         ObjectMapper objectMapper = new ObjectMapper();
 
-        Address address = new Address("Seoul", "Mapo-daero", "69050");
+        Address address = new Address("Seoul", "마포구", "69050");
 
         Member member = new Member("Tester", address);
         em.persist(member);
 
-        Item item = new Item("Group Buy Guide", 15000, 100);
-        Item item2 = new Item("Spring Boot 4.0", 25000, 300);
+        Item item = new Item("공동구매 가이드", 15000, 100);
+        Item item2 = new Item("스프링부트4.0", 25000, 300);
         em.persist(item);
         em.persist(item2);
 
@@ -74,11 +74,11 @@ class OrderControllerTest {
                 .andExpect(jsonPath("$.status").value("CREATED"))
                 .andExpect(jsonPath("$.items").isArray())
                 .andExpect(jsonPath("$.items.length()").value(2))
-                .andExpect(jsonPath("$.items[0].name").value("Group Buy Guide"))
+                .andExpect(jsonPath("$.items[0].name").value("공동구매 가이드"))
                 .andExpect(jsonPath("$.items[0].quantity").value(10))
                 .andExpect(jsonPath("$.items[0].unitPrice").value(15000))
                 .andExpect(jsonPath("$.items[0].lineTotal").value(150000))
-                .andExpect(jsonPath("$.items[1].name").value("Spring Boot 4.0"))
+                .andExpect(jsonPath("$.items[1].name").value("스프링부트4.0"))
                 .andExpect(jsonPath("$.totalAmount").value(900000))
                 .andExpect(jsonPath("$.createdAt").isNotEmpty())
                 .andDo(print());

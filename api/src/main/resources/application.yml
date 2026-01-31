@@ -22,7 +22,10 @@ spring:
     validate-on-migrate: true
     out-of-order: false
     clean-disabled: false # 로컬만 허용
-
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
 ---
 spring:
   config:
@@ -33,7 +36,10 @@ spring:
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
-
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
 ---
 spring:
   config:
@@ -50,3 +56,7 @@ spring:
     user: ${FLYWAY_USER:${DB_USERNAME}}
     password: ${FLYWAY_PASSWORD:${DB_PASSWORD}}
     locations: classpath:db/migration
+  jpa:
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
