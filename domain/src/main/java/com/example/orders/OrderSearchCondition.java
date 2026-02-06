@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public record OrderSearchCondition
     (
-            String memberName,      // 회원 이름
+            Long memberId,      // 회원 id
             OrderStatus orderStatus, // 주문 상태 (CREATED, PAID, SHIPPED, CANCELLED)
             Integer minPrice,       // 최소 금액
             Integer maxPrice,       // 최대 금액

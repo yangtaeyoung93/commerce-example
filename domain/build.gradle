@@ -2,8 +2,12 @@ plugins {
     id 'java-library'
 }
 
+
 def querydslGeneratedDir = layout.buildDirectory.dir("generated/sources/annotationProcessor/java/main")
 
+tasks.withType(JavaCompile).configureEach {
+    options.getGeneratedSourceOutputDirectory().set(querydslGeneratedDir)
+}
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.34'
     annotationProcessor 'org.projectlombok:lombok:1.18.34'
@@ -17,15 +21,8 @@ dependencies {
     implementation project(':global')
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir querydslGeneratedDir
-        }
-    }
-}
-
-// 4. clean 태스크 시 생성된 폴더도 같이 삭제
+// 4. clean ?�스?????�성???�더??같이 ??��
 clean {
     delete querydslGeneratedDir
 }
+
