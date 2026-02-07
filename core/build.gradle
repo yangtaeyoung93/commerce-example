@@ -11,6 +11,7 @@ dependencies {
     implementation 'jakarta.validation:jakarta.validation-api'
     implementation project(':domain')
     implementation project(':global')
+    implementation project(':infra')
     testImplementation project(':infra')
     testImplementation 'org.hibernate.validator:hibernate-validator'
     testImplementation 'org.junit.jupiter:junit-jupiter:6.0.1'
