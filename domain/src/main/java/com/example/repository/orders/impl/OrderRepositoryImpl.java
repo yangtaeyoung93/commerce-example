@@ -34,7 +34,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
                 .join(order.member, member).fetchJoin()
                 .where(
                         order.status.eq(condition.orderStatus()),
-                        memberNameEq(condition.memberName()),
+                        memberIdEq(condition.memberId()),
                         statusEq(condition.orderStatus()),
                         priceBetween(condition.minPrice(),condition.maxPrice())
                 )
@@ -50,7 +50,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
                 .join(order.member, member).fetchJoin()
                 .where(
                         statusEq(condition.orderStatus()),
-                        memberNameEq(condition.memberName()),
+                        memberIdEq(condition.memberId()),
                         priceBetween(condition.minPrice(), condition.maxPrice())
                 )
                 .offset(pageable.getOffset()) // 페이지 시작 번호
@@ -62,7 +62,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
                 .from(order)
                 .where(
                         statusEq(condition.orderStatus()),
-                        memberNameEq(condition.memberName()),
+                        memberIdEq(condition.memberId()),
                         priceBetween(condition.minPrice(), condition.maxPrice())
                 );
 
@@ -84,7 +84,7 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
                 .join(order.member, member)
                 .where(
                         statusEq(condition.orderStatus()),
-                        memberNameEq(condition.memberName()),
+                        memberIdEq(condition.memberId()),
                         priceBetween(condition.minPrice(), condition.maxPrice())
                 )
                 .fetch();
@@ -119,8 +119,8 @@ public class OrderRepositoryImpl implements OrderRepositoryCustom {
     }
 
 
-    private BooleanExpression memberNameEq(String name) {
-        return hasText(name) ? member.name.contains(name) : null;
+    private BooleanExpression memberIdEq(String memberId) {
+        return hasText(memberId) ? member.memberId.contains(memberId) : null;
     }
 
 

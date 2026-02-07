@@ -43,7 +43,8 @@ class OrderServiceTest {
         Long itemId = 10L;
         int quantity = 2;
 
-        Member member = new Member();
+        Address address = new Address("Seoul", "마포구", "69050");
+        Member member = new Member("Tester","테스트계정",address);
         Item item = new Item("Test Item", 1500, 10);
         item.setId(itemId);
 

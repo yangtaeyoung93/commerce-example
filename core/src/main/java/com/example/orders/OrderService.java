@@ -1,6 +1,7 @@
 package com.example.orders;
 
 import com.example.infra.redis.CacheService;
+import com.example.infra.redis.RateLimit;
 import com.example.item.Item;
 import com.example.member.Member;
 import com.example.member.exception.MemberNotFoundException;
@@ -123,12 +124,17 @@ public class OrderService {
      * 페이지별로 필요한 것만 저장(10개)
      * 네트워크 효율적
      * 메모리 절약
+     *
+     * RateLimit
+     * 60초 동안 최대 100번까지만 요청 가능
      */
     @Cacheable(
             value = "orders",  // 캐시 이름
             key = "'member:' + #condition.memberId + ':page:' + #pageable.pageNumber",
-            unless = "#result == null"  // null은 캐싱 안 함
+            unless = "#result == null",  // null은 캐싱 안 함
+            sync = true // 락 설정
     )
+    @RateLimit(maxRequests = 100, windowSeconds = 60)
     public PageResponse searchPage(OrderSearchCondition condition, Pageable pageable){
         Page<OrderResponse> orders = orderRepository.searchEntity(condition, pageable)
                 .map(OrderResponse::from);

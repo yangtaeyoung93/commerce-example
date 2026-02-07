@@ -42,7 +42,7 @@ class OrderControllerTest {
 
         Address address = new Address("Seoul", "마포구", "69050");
 
-        Member member = new Member("Tester", address);
+        Member member = new Member("Tester","테스트계정", address);
         em.persist(member);
 
         Item item = new Item("공동구매 가이드", 15000, 100);
