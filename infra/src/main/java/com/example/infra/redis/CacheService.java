@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.Set;
 
 @Service
@@ -18,5 +19,17 @@ public class CacheService {
         if (keys != null && !keys.isEmpty()) {
             redisTemplate.delete(keys);
         }
+    }
+
+    public String get(String idempotencyKey) {
+        return (String) redisTemplate.opsForValue().get(idempotencyKey);
+    }
+
+    public void saveIdempotencyKey(String idempotencyKey, String paymentId, Duration duration) {
+        redisTemplate.opsForValue().set(
+                idempotencyKey,
+                paymentId,
+                Duration.ofDays(1)
+        );
     }
 }
