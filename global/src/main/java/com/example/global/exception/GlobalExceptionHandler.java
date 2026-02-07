@@ -24,6 +24,13 @@ public class GlobalExceptionHandler {
                 .body(CommonResponse.error(errorResponse));
     }
 
+    @ExceptionHandler(RateLimitExceededException.class)
+    public ResponseEntity<CommonResponse> handleRateLimitExceededException(RateLimitExceededException e){
+        ErrorResponse errorResponse = new ErrorResponse(ErrorCode.RESOURCE_NOT_FOUND, e.getDetails());
+        return ResponseEntity.status(ErrorCode.RESOURCE_NOT_FOUND.getStatus())
+                .body(CommonResponse.error(errorResponse));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<CommonResponse> handleException(Exception e){
         e.printStackTrace();
