@@ -21,7 +21,6 @@ dependencies {
     implementation project(':global')
 }
 
-// 4. clean ?œìŠ¤?????ì„±???´ë”??ê°™ì´ ?? œ
 clean {
     delete querydslGeneratedDir
 }
