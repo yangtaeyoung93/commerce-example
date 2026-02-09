@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api/spring-boot.api.main.iml" filepath="$PROJECT_DIR$/.idea/modules/api/spring-boot.api.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/api/spring-boot.api.test.iml" filepath="$PROJECT_DIR$/.idea/modules/api/spring-boot.api.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-boot.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-boot.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/spring-boot.core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/core/spring-boot.core.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/spring-boot.core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/core/spring-boot.core.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/spring-boot.domain.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/spring-boot.domain.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/spring-boot.domain.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/spring-boot.domain.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/global/spring-boot.global.main.iml" filepath="$PROJECT_DIR$/.idea/modules/global/spring-boot.global.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/spring-boot.infra.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/spring-boot.infra.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infra/spring-boot.infra.test.iml" filepath="$PROJECT_DIR$/.idea/modules/infra/spring-boot.infra.test.iml" />
     </modules>
   </component>
 </project>
